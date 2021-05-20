@@ -1,0 +1,25 @@
+<fa-icon [class]='prozirnost.prozirnost' class='korpa'[icon]='faShoppingCart'></fa-icon>
+<br />
+<h3 [class]='prozirnost.prozirnost' class='btnKorpa' (click)='ukljuciVidljivostProzora()'><b>Pogledajte vašu korpu</b></h3>
+<div [class]='tabelaVidljivost' class='prozor'>
+<fa-icon [icon]='faWindowClose' (click)='iskljuciVidljivostProzora()' class='windowClose'></fa-icon>
+<div class='racun'>Vaš račun: {{korpa.racun}}</div>
+<table class='tblProizvodi'>
+    <thead>
+        <th>Proizvod</th>
+        <th>Naziv</th>
+        <th>Cena</th>
+        <th>Izbaci iz korpe</th>
+        
+    </thead>
+    <tr *ngFor='let proizvod of korpa.proizvodi; let i=index' >
+        <td><img [src]='proizvod.slika' /></td>
+        <td>{{proizvod.naziv}}</td>
+        <td>{{proizvod.cena}}</td>
+        <td><fa-icon [icon]='faMinus' (click)='izbaciProizvod(i)'></fa-icon></td>
+       
+
+    </tr>
+
+</table>
+</div>
